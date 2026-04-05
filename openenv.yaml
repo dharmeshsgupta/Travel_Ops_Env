@@ -1,0 +1,42 @@
+env_name: travel_ops_env
+description: >
+  Enterprise-grade RL environment for Level 2 Customer Support Agent evaluation.
+  Supports PPO/DPO training pipelines with dense reward shaping, pagination traps,
+  RAG policy retrieval, and deterministic trajectory-based grading.
+
+entrypoint: environment.TravelOpsEnv
+
+models:
+  - Qwen/Qwen2.5-72B-Instruct
+
+tasks:
+  - name: easy_triage
+    description: "Read the inbox and categorize the customer intent."
+    difficulty: easy
+
+  - name: medium_refund
+    description: "Verify user identity, look up booking, check policy, and process a refund."
+    difficulty: medium
+    task_level: normal
+
+  - name: hard_delayed_refund
+    description: >
+      Handle Charlie's delayed-flight refund: paginate bookings, retrieve hidden
+      refund policy via RAG, check flight delay status, process refund (with 503
+      retry handling), and communicate the outcome.
+    difficulty: hard
+    task_level: hard
+
+grading:
+  method: trajectory
+  grader: environment.TravelOpsEnv.grade_hard_task
+
+reward_shaping:
+  step_penalty: -0.02
+  valid_parse_bonus: +0.05
+  pagination_cursor_bonus: +0.05
+  successful_query: +0.1
+  successful_refund: +0.5
+  gateway_error_penalty: -0.1
+  invalid_tool_call: -0.5
+  repeat_action_trap: -1.0

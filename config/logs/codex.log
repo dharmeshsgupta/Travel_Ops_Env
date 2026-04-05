@@ -1,0 +1,36 @@
+2026-04-05 08:50:50 | WARNING  | Cannot detect or read from CBR archives
+2026-04-05 08:50:51 | INFO     | Starting Codex v1.10.0
+2026-04-05 08:50:51 | INFO     | Ensuring database is correct and up to date...
+2026-04-05 08:51:05 | SUCCESS  | Database ready.
+2026-04-05 08:51:05 | SUCCESS  | Created admin user.
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Auto Update = False
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Banner Text = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Folder View = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Import Metadata = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Lazy Import Metadata = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Non Users = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Registration = True
+2026-04-05 08:51:05 | INFO     | Created AdminFlag: Send Telemetry = True
+2026-04-05 08:51:07 | INFO     | Created Custom Covers Dir settings in the db.
+2026-04-05 08:51:08 | INFO     | Created 1 missing auth tokens for users.
+2026-04-05 08:54:05 | WARNING  | Cannot detect or read from CBR archives
+2026-04-05 08:54:05 | INFO     | Starting Codex v1.10.0
+2026-04-05 08:54:05 | INFO     | Ensuring database is correct and up to date...
+2026-04-05 08:54:06 | SUCCESS  | Database ready.
+2026-04-05 08:54:06 | INFO     | Created 0 missing auth tokens for users.
+2026-04-05 08:56:08 | WARNING  | Cannot detect or read from CBR archives
+2026-04-05 08:56:08 | INFO     | Starting Codex v1.10.0
+2026-04-05 08:56:08 | INFO     | Ensuring database is correct and up to date...
+2026-04-05 08:56:09 | SUCCESS  | Database ready.
+2026-04-05 08:56:09 | INFO     | Created 0 missing auth tokens for users.
+2026-04-05 08:56:09 | WARNING  | Could not clear cache (file locked). Skipping.
+2026-04-05 08:56:09 | INFO     | Codex is being served without a url path prefix.
+2026-04-05 08:56:09 | SUCCESS  | Running Codex v1.10.0
+2026-04-05 08:56:09 | SUCCESS  | BroadcastListener started.
+2026-04-05 08:56:11 | INFO     | LibrarianDaemon started all threads.
+2026-04-05 08:56:11 | SUCCESS  | LibrarianDaemon ready for tasks.
+2026-04-05 08:56:11 | INFO     | Library C:\Projects\Hackthon_projects\config\custom-covers waiting for manual poll.
+2026-04-05 08:56:11 | INFO     | Looking for search entries to update since the fracturing of the multiverse...
+2026-04-05 08:56:11 | INFO     | Looking for missing search entries to create...
+2026-04-05 08:56:11 | SUCCESS  | Search index found to be already synced in a moment.
+2026-04-05 08:57:09 | INFO     | Saved new latest codex version 1.10.0.
