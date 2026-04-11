@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "travel_ops_env"
+version = "0.1.0"
+description = "Enterprise-grade RL environment for travel support agent evaluation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic>=2.0",
+    "openenv-core>=0.2.0",
+    "openai"
+]
+
+[project.scripts]
+server = "server.app:main"
+
