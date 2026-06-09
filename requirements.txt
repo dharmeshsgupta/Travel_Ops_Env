@@ -1,5 +1,6 @@
+# inference.py imports openai + openenv — keep both or Phase 2 fails with ModuleNotFoundError.
+openai>=1.0
+openenv-core>=0.2.0
 fastapi
 uvicorn[standard]
 pydantic>=2.0
-openenv-core>=0.2.0
-openai>=1.0

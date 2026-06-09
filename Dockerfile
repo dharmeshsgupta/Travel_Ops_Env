@@ -4,6 +4,8 @@ FROM python:3.11-slim
 RUN useradd -m -u 1000 user
 USER user
 ENV PATH="/home/user/.local/bin:$PATH"
+# Unbuffered stdout/stderr for inference and servers (helps log parsers).
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 

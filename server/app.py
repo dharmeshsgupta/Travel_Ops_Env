@@ -2,8 +2,8 @@
 app.py – FastAPI server exposing TravelOpsEnv for Hugging Face Spaces.
 Provides REST endpoints for environment reset, step, and grading.
 """
-import json
-from fastapi import FastAPI, HTTPException
+import os
+from fastapi import Body, FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 from typing import Dict, Any, Literal, Optional
 
@@ -58,15 +58,21 @@ def health_check():
 
 
 @app.post("/")
-def health_check_post():
-    """Some validators POST to `/` without a JSON body; mirror GET so probes do not 422."""
+async def health_check_post(request: Request):
+    """Accept POST / with or without a body (OpenEnv / HF probes)."""
+    try:
+        await request.body()
+    except Exception:
+        pass
     return health_check()
 
 
 @app.post("/reset", response_model=dict)
-def reset_env(req: ResetRequest = None):
+def reset_env(req: Optional[ResetRequest] = Body(default=None)):
     global env
-    current_task = req.task_level if req else "hard"
+    if req is None:
+        req = ResetRequest()
+    current_task = req.task_level
     env = TravelOpsEnv(task_level=current_task)
     obs = env.reset()
     
@@ -108,7 +114,10 @@ def grade_env():
 
 def main():
     import uvicorn
-    uvicorn.run("server.app:app", host="0.0.0.0", port=8000, reload=True)
+
+    port = int(os.environ.get("PORT", "7860"))
+    uvicorn.run("server.app:app", host="0.0.0.0", port=port, reload=False)
+
 
 if __name__ == "__main__":
     main()
